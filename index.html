@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIFO</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="./css/main.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__wrapper">
+                <div class="logo__wrapper">
+                    <a href="#" class="logo">
+                        <img src="./img/logo-yellow.svg" alt="">
+                    </a>
+                </div>
+                <nav class="header__nav">
+                    <a href="#" class="nav__item active">Компания</a>
+                    <a href="#" class="nav__item">Продукция</a>
+                    <a href="#" class="nav__item">Документы</a>
+                    <a href="#" class="nav__item">Новости</a>
+                    <a href="#" class="nav__item">Медиа</a>
+                    <a href="#" class="nav__item">Контакты</a>
+                </nav>
+                <div class="actions__wrapper">
+                    <a href="#" class="header-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M17.6 6.3C16.1 4.8 14.1 4 12 4C7.6 4 4 7.6 4 12C4 13.4 4.40001 14.8 5.10001 16L4 20L8.20001 18.9C9.40001 19.5 10.7 19.9 12 19.9C16.4 19.9 20 16.3 20 11.9C20 9.8 19.1 7.8 17.6 6.3ZM12 18.6C10.8 18.6 9.60001 18.3 8.60001 17.7L8.39999 17.6L5.89999 18.3L6.60001 15.9L6.39999 15.6C5.69999 14.5 5.39999 13.3 5.39999 12.1C5.39999 8.5 8.4 5.5 12 5.5C13.8 5.5 15.4 6.2 16.7 7.4C18 8.7 18.6 10.3 18.6 12.1C18.6 15.6 15.7 18.6 12 18.6ZM15.6 13.6C15.4 13.5 14.4 13 14.2 13C14 12.9 13.9 12.9 13.8 13.1C13.7 13.3 13.3 13.7 13.2 13.9C13.1 14 13 14 12.8 14C12.6 13.9 12 13.7 11.2 13C10.6 12.5 10.2 11.8 10.1 11.6C10 11.4 10.1 11.3 10.2 11.2C10.3 11.1 10.4 11 10.5 10.9C10.6 10.8 10.6 10.7 10.7 10.6C10.8 10.5 10.7 10.4 10.7 10.3C10.7 10.2 10.3 9.2 10.1 8.8C10 8.5 9.80001 8.5 9.70001 8.5C9.60001 8.5 9.49999 8.5 9.29999 8.5C9.19999 8.5 8.99999 8.5 8.79999 8.7C8.59999 8.9 8.10001 9.4 8.10001 10.4C8.10001 11.4 8.79999 12.3 8.89999 12.5C8.99999 12.6 10.3 14.7 12.3 15.5C14 16.2 14.3 16 14.7 16C15.1 16 15.9 15.5 16 15.1C16.2 14.6 16.2 14.2 16.1 14.2C16 13.7 15.8 13.7 15.6 13.6Z"
+                                fill="white" />
+                        </svg>
+                    </a>
+
+                    <a href="#" class="header-link"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4.09992 11.7083C8.39487 9.83705 11.2589 8.60341 12.6919 8.00738C16.7834 6.30558 17.6335 6.00996 18.1877 6.00009C18.3095 5.99805 18.582 6.02826 18.7586 6.17149C18.9076 6.29243 18.9486 6.45581 18.9683 6.57048C18.9879 6.68514 19.0123 6.94636 18.9929 7.15046C18.7712 9.48009 17.8118 15.1335 17.3237 17.7427C17.1172 18.8468 16.7105 19.217 16.3168 19.2532C15.4613 19.3319 14.8116 18.6878 13.9829 18.1446C12.6862 17.2946 11.9537 16.7654 10.695 15.936C9.24042 14.9774 10.1834 14.4506 11.0124 13.5896C11.2293 13.3643 14.999 9.93546 15.0719 9.62441C15.0811 9.58551 15.0895 9.44051 15.0034 9.36394C14.9172 9.28737 14.7901 9.31355 14.6983 9.33438C14.5683 9.36389 12.4968 10.7331 8.48389 13.4419C7.89591 13.8457 7.36333 14.0424 6.88616 14.0321C6.36012 14.0207 5.34822 13.7346 4.59598 13.4901C3.67333 13.1902 2.94002 13.0316 3.00388 12.5223C3.03714 12.257 3.40248 11.9856 4.09992 11.7083Z"
+                                fill="white" />
+                        </svg>
+                    </a>
+                    <a href="#" class="header-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.0348 7.29154L8.65115 2.84328L5.35439 3.42986C3.71397 4.65064 1.43964 9.16762 7.95553 15.6835C14.4714 22.1994 19.139 20.0756 20.347 18.4225L20.8581 15.0502L15.7173 12.974L14.3604 15.1176C14.3604 15.1176 12.8932 15.0101 10.568 12.6849C8.24285 10.3597 8.13529 8.89257 8.13529 8.89257L10.0348 7.29154Z"
+                                stroke="white" stroke-width="2" />
+                        </svg>
+                    </a>
+                    <a href="#" class="header-link">
+                        РУ
+                    </a>
+                    <a href="#" class="search-link">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M34.0622 37.5983L27.6982 31.2344L31.2338 27.6988L37.5977 34.0628" fill="#FBB03E" />
+                            <path
+                                d="M4.00586 18.5059C4.00586 20.41 4.38091 22.2955 5.10961 24.0548C5.8383 25.814 6.90636 27.4125 8.25281 28.7589C9.59926 30.1054 11.1977 31.1734 12.9569 31.9021C14.7162 32.6308 16.6017 33.0059 18.5059 33.0059C20.41 33.0059 22.2955 32.6308 24.0548 31.9021C25.814 31.1734 27.4125 30.1054 28.7589 28.7589C30.1054 27.4125 31.1734 25.814 31.9021 24.0548C32.6308 22.2955 33.0059 20.41 33.0059 18.5059C33.0059 16.6017 32.6308 14.7162 31.9021 12.9569C31.1734 11.1977 30.1054 9.59926 28.7589 8.25281C27.4125 6.90636 25.814 5.8383 24.0548 5.10961C22.2955 4.38091 20.41 4.00586 18.5059 4.00586C16.6017 4.00586 14.7162 4.38091 12.9569 5.10961C11.1977 5.8383 9.59926 6.90636 8.25281 8.25281C6.90636 9.59926 5.8383 11.1977 5.10961 12.9569C4.38091 14.7162 4.00586 16.6017 4.00586 18.5059Z"
+                                stroke="white" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <aside class="sidebar">
+
+    </aside>
+    <main class="main">
+        <section class="cards-section">
+            <div class="container">
+                <div class="cards-section__wrapper">
+                    <div class="cards-section__head">
+                        <h2 class="cards-section__title">Продукция</h2>
+                        <a href="#" class="cards-section__link">Показать все</a>
+                        <div class="cards-section__nav">
+                            <div class="swiper-button-prev">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M26 8L14 19.9999L26 32" stroke="#21272A" stroke-width="3" />
+                                </svg>
+                            </div>
+                            <div class="swiper-button-next">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 8L26 19.9999L14 32" stroke="#21272A" stroke-width="3" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper cards-section__slider">
+                        <div class="swiper-wrapper">
+                            <a href="#" class="swiper-slide cards-item">
+                                <div class="cards-item__image-wrapper">
+                                    <div class="cards-item__image">
+                                        <img src="./img/card-1.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="cards-item__body">
+                                    <div class="cards-item__title">Консоль 28x18</div>
+                                    <div class="cards-item__footer">
+                                        <div class="catd-item__info">Размер L</div>
+                                        <div class="catd-item__cat">какой то ещё</div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="swiper-slide cards-item">
+                                <div class="cards-item__image-wrapper">
+                                    <div class="cards-item__image">
+                                        <img src="./img/card-2.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="cards-item__body">
+                                    <div class="cards-item__title">Консоль 28x18</div>
+                                    <div class="cards-item__footer">
+                                        <div class="catd-item__info">Размер L</div>
+                                        <div class="catd-item__cat">другое</div>
+                                    </div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="swiper-slide cards-item">
+                                <div class="cards-item__image-wrapper">
+                                    <div class="cards-item__image">
+                                        <img src="./img/card-3.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="cards-item__body">
+                                    <div class="cards-item__title">Консоль 28x18</div>
+                                    <div class="cards-item__footer">
+                                        <div class="catd-item__info">Размер L</div>
+                                        <div class="catd-item__cat">не Сельхоз</div>
+                                    </div>
+                                </div>
+                            </a>
+
+
+                            <a href="#" class="swiper-slide cards-item">
+                                <div class="cards-item__image-wrapper">
+                                    <div class="cards-item__image">
+                                        <img src="./img/card-3.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="cards-item__body">
+                                    <div class="cards-item__title">Консоль 28x18</div>
+                                    <div class="cards-item__footer">
+                                        <div class="catd-item__info">Размер L</div>
+                                        <div class="catd-item__cat">Сельхоз</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section class="cards-section">
+            <div class="container">
+                <div class="cards-section__wrapper">
+                    <div class="cards-section__head">
+                        <h2 class="cards-section__title">Новости</h2>
+                        <a href="#" class="cards-section__link">Показать все</a>
+                        <div class="cards-section__nav">
+                            <div class="swiper-button-prev">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M26 8L14 19.9999L26 32" stroke="#21272A" stroke-width="3" />
+                                </svg>
+                            </div>
+                            <div class="swiper-button-next">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 8L26 19.9999L14 32" stroke="#21272A" stroke-width="3" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper cards-section__slider">
+                        <div class="swiper-wrapper">
+                            <a href="#" class="swiper-slide cards-item">
+                                <div class="cards-item__image-wrapper">
+                                    <div class="cards-item__image">
+                                        <img src="https://cdn.pixabay.com/photo/2016/09/26/14/15/background-1696064_640.jpg"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="cards-item__body">
+                                    <div class="cards-item__title">Termoclip на SIB BUILD'24</div>
+                                    <div class="cards-item__text">24.09.2024</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="swiper-slide cards-item">
+                                <div class="cards-item__image-wrapper">
+                                    <div class="cards-item__image">
+                                        <img src="https://cdn.pixabay.com/photo/2016/09/26/14/15/background-1696064_640.jpg"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="cards-item__body">
+                                    <div class="cards-item__title">Как правильно подобрать крепления для теплоизоляции в
+                                        частом строительстве для слабонесущих оснований </div>
+                                    <div class="cards-item__text">24.09.2024</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="swiper-slide cards-item">
+                                <div class="cards-item__image-wrapper">
+                                    <div class="cards-item__image">
+                                        <img src="https://cdn.pixabay.com/photo/2016/09/26/14/15/background-1696064_640.jpg"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="cards-item__body">
+                                    <div class="cards-item__title">Сибирская строительная неделя и Форум "Стратегии
+                                        ускорения темпов строительства"</div>
+                                    <div class="cards-item__text">24.09.2024</div>
+                                </div>
+                            </a>
+
+
+                            <a href="#" class="swiper-slide cards-item">
+                                <div class="cards-item__image-wrapper">
+                                    <div class="cards-item__image">
+                                        <img src="https://cdn.pixabay.com/photo/2016/09/26/14/15/background-1696064_640.jpg"
+                                            alt="">
+                                    </div>
+                                </div>
+                                <div class="cards-item__body">
+                                    <div class="cards-item__title">Сибирская строительная неделя и Форум "Стратегии
+                                        ускорения темпов строительства"</div>
+                                    <div class="cards-item__text">24.09.2024</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="info-section">
+            <div class="container">
+                <div class="info-section__wrapper" style="background-image: url(./img/section-bg.png);">
+                    <div class="info-section__content">
+                        <h3 class="info-section__title">Рифо Инжениринг</h3>
+                        <p class="info-section__descr">
+                            Поставляем пластиковые трубы и фасонные части от лучших европейских и российских
+                            производителей. <br>
+                            Мы рады предложить Вам большой выбор труб из полиэтилена низкого давления со
+                            сроком службы более 50 лет, большой выбор соединительных частей (фитинги) для полиэтиленовых
+                            труб.
+                        </p>
+                        <a href="#" class="info-section__btn">
+                            <span>Подробнее</span>
+                            <div class="ico">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.3396 5.58789L17.7529 12.0012L11.3396 18.4146" stroke="white"
+                                        stroke-width="2" />
+                                    <path d="M17.7527 12.002H4.24707" stroke="white" stroke-width="2" />
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="plates-section">
+            <div class="container">
+                <div class="plates-section__wrapper">
+                    <div class="plate-item">
+                        <div class="plate-item__content">
+                            <div class="plate-item__title">Быстрый расчёт</div>
+                            <div class="plate-item__descr">
+                                Эффективно автоматизируем процессы, чтобы Вам не приходилось ждать.
+                                В кратчайшие сроки считаем заказы с учетом спецификации, объемов продукции и
+                                скидок.
+                            </div>
+                        </div>
+                        <div class="plate-item__ico">
+                            <img src="./img/plate-icon-1.svg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="plate-item">
+                        <div class="plate-item__content">
+                            <div class="plate-item__title">Хорошие цены</div>
+                            <div class="plate-item__descr">
+                                Стремимся к поддержанию выгодной ценовой политики. Постоянно отслеживаем ситуацию на
+                                рынке, активно взаимодействуем с партнерами-производителями.
+                            </div>
+                        </div>
+                        <div class="plate-item__ico">
+                            <img src="./img/plate-icon-2.svg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="plate-item">
+                        <div class="plate-item__content">
+                            <div class="plate-item__title">Удобный заказ</div>
+                            <div class="plate-item__descr">
+                                Функционал сайта позволяет быстро найти и заказать продукцию. Оставьте заявку онлайн,
+                                менеджеры рассчитают стоимость и свяжутся с Вами.
+                            </div>
+                        </div>
+                        <div class="plate-item__ico">
+                            <img src="./img/plate-icon-3.svg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="plate-item">
+                        <div class="plate-item__content">
+                            <div class="plate-item__title">Доставка в срок</div>
+                            <div class="plate-item__descr">Тесно сотрудничаем с ключевыми транспортными компаниями
+                                России и можем отправить продукцию в любую точку России.</div>
+                        </div>
+                        <div class="plate-item__ico">
+                            <img src="./img/plate-icon-4.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="info-section">
+            <div class="container">
+                <div class="info-section__wrapper" style="background-image: url(./img/section-bg-2.png);">
+                    <div class="info-section__content">
+                        <h3 class="info-section__title">Мы гарантируем</h3>
+                        <p class="info-section__descr">
+                            Высокое качество своей продукции, которая произведена с учётом всех современных технологий.
+                            <br>
+                            Все товары имеют соответствующую документацию. На продукцию распространяются сертификаты и
+                            паспорта качества. Соблюдены все требования ГОСТа.
+                        </p>
+                        <a href="#" class="info-section__btn">
+                            <span>Подробнее</span>
+                            <div class="ico">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.3396 5.58789L17.7529 12.0012L11.3396 18.4146" stroke="white"
+                                        stroke-width="2" />
+                                    <path d="M17.7527 12.002H4.24707" stroke="white" stroke-width="2" />
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cards-section">
+            <div class="container">
+                <div class="cards-section__wrapper">
+                    <div class="cards-section__head">
+                        <h2 class="cards-section__title">Документы</h2>
+                        <a href="#" class="cards-section__link">Показать все</a>
+                        <div class="cards-section__nav">
+                            <div class="swiper-button-prev">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M26 8L14 19.9999L26 32" stroke="#21272A" stroke-width="3" />
+                                </svg>
+                            </div>
+                            <div class="swiper-button-next">
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 8L26 19.9999L14 32" stroke="#21272A" stroke-width="3" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper cards-section__slider docs-slider">
+                        <div class="swiper-wrapper">
+                            <a href="#" target="_blank" class="swiper-slide cards-item">
+                                <div class="cards-item__image-wrapper">
+                                    <div class="cards-item__image">
+                                        <img src="./img/doc-image.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="cards-item__body">
+                                    <div class="cards-item__title">Termoclip на SIB BUILD'24</div>
+                                    <div class="cards-item__text">PDF</div>
+                                </div>
+                            </a>
+
+                            <a href="#" target="_blank" class="swiper-slide cards-item">
+                                <div class="cards-item__image-wrapper">
+                                    <div class="cards-item__image">
+                                        <img src="./img/doc-image.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="cards-item__body">
+                                    <div class="cards-item__title">Termoclip на SIB BUILD'24</div>
+                                    <div class="cards-item__text">PDF</div>
+                                </div>
+                            </a>
+
+                            <a href="#" target="_blank" class="swiper-slide cards-item">
+                                <div class="cards-item__image-wrapper">
+                                    <div class="cards-item__image">
+                                        <img src="./img/doc-image.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="cards-item__body">
+                                    <div class="cards-item__title">Termoclip на SIB BUILD'24</div>
+                                    <div class="cards-item__text">PDF</div>
+                                </div>
+                            </a>
+
+                            <a href="#" target="_blank" class="swiper-slide cards-item">
+                                <div class="cards-item__image-wrapper">
+                                    <div class="cards-item__image">
+                                        <img src="./img/doc-image.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="cards-item__body">
+                                    <div class="cards-item__title">Termoclip на SIB BUILD'24</div>
+                                    <div class="cards-item__text">PDF</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer"></footer>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
