@@ -18,7 +18,7 @@ cardsSliders.forEach(wrapper => {
                 spaceBetween: 20
             },
             992: {
-                slidesPerView: 3,
+                slidesPerView: 'auto',
                 spaceBetween: 40
             }
         }
