@@ -12,6 +12,8 @@ $(document).ready(function () {
         $(this).parent().toggleClass('active');
         $submenu.slideToggle();
     });
+
+
 });
 
 
