@@ -40,3 +40,18 @@ cardsSliders.forEach(wrapper => {
     });
 })
 
+
+
+
+const articleSlider = new Swiper('.article-page__slider', {
+    slidesPerView: 1,
+    speed: 900,
+    spaceBetween: 20,
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+    }, navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+})
