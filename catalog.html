@@ -469,8 +469,7 @@
                 const newUrl = new URL(window.location.href);
                 newUrl.searchParams.set("param1", param1);
                 newUrl.searchParams.set("param2", param2);
-
-                window.history.pushState({}, "", newUrl);
+                window.location.href = newUrl;
               }
 
               $(".types-select, .category-select").on("change", updateUrl);
