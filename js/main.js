@@ -100,14 +100,15 @@ const mainImageSlider = new Swiper('.main-image-slider', {
 
 mainImageLayers.forEach(el => {
     el.addEventListener('click', (e) => {
+        mainImageSlider.autoplay.pause();
         const elIndex = el.dataset.mainLayer;
         selectActiveLayer(elIndex);
         mainImageSlider.slideTo(elIndex - 1);
-        mainImageSection.classList.add('selected')
+        mainImageSection.classList.add('selected');
     });
 });
 
 layersBackBtn.addEventListener('click', () => {
     mainImageSection.classList.remove('selected');
     mainImageSlider.autoplay.start();
-})
+});
