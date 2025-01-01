@@ -56,7 +56,11 @@ const articleSlider = new Swiper('.article-page__slider', {
     },
 })
 
+
+const mainImageSection = document.querySelector('.main-image-section');
 const mainImageSvg = document.querySelector('#main-image');
+const layersBackBtn = document.querySelector('.layers-back')
+
 const mainImageLayers = [...mainImageSvg.querySelectorAll('[data-main-layer]')];
 const selectActiveLayer = (ind) => {
     mainImageLayers.forEach(el => el.classList.remove('active'));
@@ -99,6 +103,11 @@ mainImageLayers.forEach(el => {
         const elIndex = el.dataset.mainLayer;
         selectActiveLayer(elIndex);
         mainImageSlider.slideTo(elIndex - 1);
-        mainImageSvg.classList.add('selected')
+        mainImageSection.classList.add('selected')
     });
+});
+
+layersBackBtn.addEventListener('click', () => {
+    mainImageSection.classList.remove('selected');
+    mainImageSlider.autoplay.start();
 })
