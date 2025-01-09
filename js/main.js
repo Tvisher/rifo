@@ -82,10 +82,10 @@ const selectActiveLayer = (ind) => {
 
         activeElemInLayer.classList.add('active');
         const activeLayerElemsInImage = document.querySelectorAll(`[data-layer-elem = '${layerIndex}-${activeElemInLayerDataId}']`);
-        console.log(activeLayerElemsInImage);
         activeLayerElemsInImage.forEach(el => el.classList.add('active'));
-
-
+        setTimeout(() => {
+            mainImageSvg.style.width = '100.1%';
+        }, 1010);
     }
 }
 
@@ -97,7 +97,7 @@ const mainImageSlider = new Swiper('.main-image-slider', {
     loop: 1,
     // updateOnWindowResize: false,
     autoplay: {
-        delay: 5000,
+        delay: 3000,
         disableOnInteraction: true,
     },
     effect: 'fade',
@@ -113,7 +113,8 @@ const mainImageSlider = new Swiper('.main-image-slider', {
             const activeSlideIndex = slider.realIndex + 1;
             activeMainSlide = activeSlideIndex;
             cleanAllActivePath();
-            selectActiveLayer(activeSlideIndex);
+            cleanAllActiveListElems();
+            selectActiveLayer(activeMainSlide);
         },
     },
 
@@ -123,9 +124,9 @@ mainImageLayers.forEach(el => {
     el.addEventListener('click', (e) => {
         mainImageSlider.autoplay.pause();
         const elIndex = el.dataset.mainLayer;
-        // selectActiveLayer(elIndex);
         mainImageSection.classList.add('selected');
-        mainImageSlider.slideTo(elIndex - 1);
+        mainImageSlider.slideToLoop(elIndex - 1);
+
     });
 });
 
