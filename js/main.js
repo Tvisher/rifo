@@ -95,6 +95,7 @@ const mainImageSlider = new Swiper('.main-image-slider', {
     speed: 400,
     spaceBetween: 20,
     loop: 1,
+    updateOnWindowResize: false,
     autoplay: {
         delay: 5000,
         disableOnInteraction: true,
