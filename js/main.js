@@ -95,7 +95,7 @@ const mainImageSlider = new Swiper('.main-image-slider', {
     speed: 400,
     spaceBetween: 20,
     loop: 1,
-    updateOnWindowResize: false,
+    // updateOnWindowResize: false,
     autoplay: {
         delay: 5000,
         disableOnInteraction: true,
@@ -111,7 +111,6 @@ const mainImageSlider = new Swiper('.main-image-slider', {
     on: {
         activeIndexChange: (slider) => {
             const activeSlideIndex = slider.realIndex + 1;
-            // if (activeMainSlide == activeSlideIndex) return;
             activeMainSlide = activeSlideIndex;
             cleanAllActivePath();
             selectActiveLayer(activeSlideIndex);
