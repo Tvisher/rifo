@@ -58,111 +58,111 @@ const articleSlider = new Swiper('.article-page__slider', {
 
 
 const mainImageSection = document.querySelector('.main-image-section');
-const mainImageSvg = document.querySelector('#main-image');
-const layersBackBtn = document.querySelector('.layers-back')
+if (mainImageSection) {
+    const mainImageSvg = document.querySelector('#main-image');
+    const layersBackBtn = document.querySelector('.layers-back');
 
-const mainImageLayers = [...mainImageSvg.querySelectorAll('[data-main-layer]')];
-const selectActiveLayer = (ind) => {
-    const prevActiveInnerLayer = document.querySelector('[data-layer].show');
-    if (prevActiveInnerLayer) prevActiveInnerLayer.classList.remove('show');
+    const mainImageLayers = [...mainImageSvg.querySelectorAll('[data-main-layer]')];
+    const selectActiveLayer = (ind) => {
+        const prevActiveInnerLayer = document.querySelector('[data-layer].show');
+        if (prevActiveInnerLayer) prevActiveInnerLayer.classList.remove('show');
 
-    mainImageLayers.forEach(el => el.classList.remove('active'));
-    let activeLayer = mainImageLayers.find(el => el.dataset.mainLayer == ind);
-    activeLayer && activeLayer.classList.add('active');
-    mainImageSvg.setAttribute('data-active-index', ind);
+        mainImageLayers.forEach(el => el.classList.remove('active'));
+        let activeLayer = mainImageLayers.find(el => el.dataset.mainLayer == ind);
+        activeLayer && activeLayer.classList.add('active');
+        mainImageSvg.setAttribute('data-active-index', ind);
 
-    const activeInnerLayer = document.querySelector(`[data-layer="${ind}"]`);
-    if (activeInnerLayer && mainImageSection.classList.contains('selected')) {
-        activeInnerLayer.classList.add('show');
-        const layerIndex = activeInnerLayer.getAttribute('data-layer');
-        const layerElems = activeInnerLayer.querySelectorAll('[data-inner]');
+        const activeInnerLayer = document.querySelector(`[data-layer="${ind}"]`);
+        if (activeInnerLayer && mainImageSection.classList.contains('selected')) {
+            activeInnerLayer.classList.add('show');
+            const layerIndex = activeInnerLayer.getAttribute('data-layer');
+            const layerElems = activeInnerLayer.querySelectorAll('[data-inner]');
 
-        const activeElemInLayer = layerElems[0];
-        const activeElemInLayerDataId = activeElemInLayer.getAttribute('data-inner');
+            const activeElemInLayer = layerElems[0];
+            const activeElemInLayerDataId = activeElemInLayer.getAttribute('data-inner');
 
-        activeElemInLayer.classList.add('active');
-        const activeLayerElemsInImage = document.querySelectorAll(`[data-layer-elem = '${layerIndex}-${activeElemInLayerDataId}']`);
-        activeLayerElemsInImage.forEach(el => el.classList.add('active'));
-        setTimeout(() => {
-            mainImageSvg.style.width = 'calc(100% + 1px)';
-        }, 1010);
+            activeElemInLayer.classList.add('active');
+            const activeLayerElemsInImage = document.querySelectorAll(`[data-layer-elem = '${layerIndex}-${activeElemInLayerDataId}']`);
+            activeLayerElemsInImage.forEach(el => el.classList.add('active'));
+            setTimeout(() => {
+                mainImageSvg.style.width = 'calc(100% + 1px)';
+            }, 1010);
+        }
     }
-}
 
-let activeMainSlide = 0;
-const mainImageSlider = new Swiper('.main-image-slider', {
-    slidesPerView: 'auto',
-    speed: 400,
-    spaceBetween: 20,
-    loop: 1,
-    autoHeight: 1,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: true,
-    },
-    effect: 'fade',
-    fadeEffect: {
-        crossFade: true
-    },
-    navigation: {
-        nextEl: '.main-image-slider__wrapper .swiper-button-next',
-        prevEl: '.main-image-slider__wrapper .swiper-button-prev',
-    },
-    on: {
-        activeIndexChange: (slider) => {
-            const activeSlideIndex = slider.realIndex + 1;
-            activeMainSlide = activeSlideIndex;
-            cleanAllActivePath();
-            cleanAllActiveListElems();
-            selectActiveLayer(activeMainSlide);
+    let activeMainSlide = 0;
+    const mainImageSlider = new Swiper('.main-image-slider', {
+        slidesPerView: 'auto',
+        speed: 400,
+        spaceBetween: 20,
+        loop: 1,
+        autoHeight: 1,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: true,
         },
-    },
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        navigation: {
+            nextEl: '.main-image-slider__wrapper .swiper-button-next',
+            prevEl: '.main-image-slider__wrapper .swiper-button-prev',
+        },
+        on: {
+            activeIndexChange: (slider) => {
+                const activeSlideIndex = slider.realIndex + 1;
+                activeMainSlide = activeSlideIndex;
+                cleanAllActivePath();
+                cleanAllActiveListElems();
+                selectActiveLayer(activeMainSlide);
+            },
+        },
 
-});
-
-mainImageLayers.forEach(el => {
-    el.addEventListener('click', (e) => {
-        mainImageSlider.autoplay.stop();
-        const elIndex = el.dataset.mainLayer;
-        mainImageSection.classList.add('selected');
-        mainImageSlider.slideToLoop(elIndex - 1);
     });
-});
 
-layersBackBtn.addEventListener('click', () => {
-    cleanAllActivePath();
-    cleanAllActiveListElems();
-    mainImageSection.classList.remove('selected');
-    mainImageSlider.autoplay.start();
-    const prevActiveInnerLayer = document.querySelector('[data-layer].show');
-    if (prevActiveInnerLayer) prevActiveInnerLayer.classList.remove('show');
-});
+    mainImageLayers.forEach(el => {
+        el.addEventListener('click', (e) => {
+            mainImageSlider.autoplay.stop();
+            const elIndex = el.dataset.mainLayer;
+            mainImageSection.classList.add('selected');
+            mainImageSlider.slideToLoop(elIndex - 1);
+        });
+    });
 
-function cleanAllActivePath() {
-    const activePathList = mainImageSection.querySelectorAll('[data-layer-elem].active');
-    activePathList.forEach(el => el.classList.remove('active'));
-}
-
-function cleanAllActiveListElems() {
-    const activeListElems = mainImageSection.querySelectorAll('[data-inner].active');
-    activeListElems.forEach(el => el.classList.remove('active'));
-}
-
-
-const layerInnerItems = document.querySelectorAll('[data-inner]');
-layerInnerItems.forEach(el => {
-    const elParentId = el.closest('[data-layer]').getAttribute('data-layer');
-    el.addEventListener('click', (e) => {
-        if (e.target.closest('.inner-item__link')) return;
+    layersBackBtn.addEventListener('click', () => {
         cleanAllActivePath();
         cleanAllActiveListElems();
-        el.classList.add('active');
-        const elId = el.getAttribute('data-inner');
-        const activeLayerElemsInImage = document.querySelectorAll(`[data-layer-elem = '${elParentId}-${elId}']`);
-        activeLayerElemsInImage.forEach(el => el.classList.add('active'));
+        mainImageSection.classList.remove('selected');
+        mainImageSlider.autoplay.start();
+        const prevActiveInnerLayer = document.querySelector('[data-layer].show');
+        if (prevActiveInnerLayer) prevActiveInnerLayer.classList.remove('show');
     });
-})
 
+    function cleanAllActivePath() {
+        const activePathList = mainImageSection.querySelectorAll('[data-layer-elem].active');
+        activePathList.forEach(el => el.classList.remove('active'));
+    }
+
+    function cleanAllActiveListElems() {
+        const activeListElems = mainImageSection.querySelectorAll('[data-inner].active');
+        activeListElems.forEach(el => el.classList.remove('active'));
+    }
+
+    const layerInnerItems = document.querySelectorAll('[data-inner]');
+    layerInnerItems.forEach(el => {
+        const elParentId = el.closest('[data-layer]').getAttribute('data-layer');
+        el.addEventListener('click', (e) => {
+            if (e.target.closest('.inner-item__link')) return;
+            cleanAllActivePath();
+            cleanAllActiveListElems();
+            el.classList.add('active');
+            const elId = el.getAttribute('data-inner');
+            const activeLayerElemsInImage = document.querySelectorAll(`[data-layer-elem = '${elParentId}-${elId}']`);
+            activeLayerElemsInImage.forEach(el => el.classList.add('active'));
+        });
+    });
+}
 
 
 
