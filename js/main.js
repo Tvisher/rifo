@@ -168,6 +168,7 @@ layerInnerItems.forEach(el => {
 
 const logosSlider = new Swiper('.logos-section__wrapper', {
     slidesPerView: 4,
+    grabCursor: 1,
     speed: 1000,
     spaceBetween: 50,
     loop: 1,
