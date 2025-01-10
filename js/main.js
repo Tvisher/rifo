@@ -95,6 +95,7 @@ const mainImageSlider = new Swiper('.main-image-slider', {
     speed: 400,
     spaceBetween: 20,
     loop: 1,
+    autoHeight: 1,
     autoplay: {
         delay: 3000,
         disableOnInteraction: true,
@@ -125,7 +126,6 @@ mainImageLayers.forEach(el => {
         const elIndex = el.dataset.mainLayer;
         mainImageSection.classList.add('selected');
         mainImageSlider.slideToLoop(elIndex - 1);
-
     });
 });
 
@@ -152,7 +152,8 @@ function cleanAllActiveListElems() {
 const layerInnerItems = document.querySelectorAll('[data-inner]');
 layerInnerItems.forEach(el => {
     const elParentId = el.closest('[data-layer]').getAttribute('data-layer');
-    el.addEventListener('click', () => {
+    el.addEventListener('click', (e) => {
+        if (e.target.closest('.inner-item__link')) return;
         cleanAllActivePath();
         cleanAllActiveListElems();
         el.classList.add('active');
@@ -161,3 +162,16 @@ layerInnerItems.forEach(el => {
         activeLayerElemsInImage.forEach(el => el.classList.add('active'));
     });
 })
+
+
+
+
+const logosSlider = new Swiper('.logos-section__wrapper', {
+    slidesPerView: 4,
+    speed: 1000,
+    spaceBetween: 50,
+    loop: 1,
+    autoplay: {
+        delay: 2000,
+    },
+});
