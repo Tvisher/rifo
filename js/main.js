@@ -84,7 +84,7 @@ const selectActiveLayer = (ind) => {
         const activeLayerElemsInImage = document.querySelectorAll(`[data-layer-elem = '${layerIndex}-${activeElemInLayerDataId}']`);
         activeLayerElemsInImage.forEach(el => el.classList.add('active'));
         setTimeout(() => {
-            mainImageSvg.style.width = '100.1%';
+            mainImageSvg.style.width = 'calc(100% + 1px)';
         }, 1010);
     }
 }
@@ -95,7 +95,6 @@ const mainImageSlider = new Swiper('.main-image-slider', {
     speed: 400,
     spaceBetween: 20,
     loop: 1,
-    // updateOnWindowResize: false,
     autoplay: {
         delay: 3000,
         disableOnInteraction: true,
@@ -122,7 +121,7 @@ const mainImageSlider = new Swiper('.main-image-slider', {
 
 mainImageLayers.forEach(el => {
     el.addEventListener('click', (e) => {
-        mainImageSlider.autoplay.pause();
+        mainImageSlider.autoplay.stop();
         const elIndex = el.dataset.mainLayer;
         mainImageSection.classList.add('selected');
         mainImageSlider.slideToLoop(elIndex - 1);
