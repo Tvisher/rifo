@@ -1670,7 +1670,7 @@ footer {
 .main-image-section.selected {
   [data-main-layer] {
     opacity: 0;
-    pointer-events: none;
+    // pointer-events: none;
   }
 }
 
