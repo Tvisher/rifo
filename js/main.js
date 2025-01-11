@@ -61,12 +61,12 @@ const mainImageSection = document.querySelector('.main-image-section');
 if (mainImageSection) {
     const mainImageSvg = document.querySelector('#main-image');
     const layersBackBtn = document.querySelector('.layers-back');
-
+    let intervalId;
     const mainImageLayers = [...mainImageSvg.querySelectorAll('[data-main-layer]')];
     const selectActiveLayer = (ind) => {
+        stopInterval();
         const prevActiveInnerLayer = document.querySelector('[data-layer].show');
         if (prevActiveInnerLayer) prevActiveInnerLayer.classList.remove('show');
-
         mainImageLayers.forEach(el => el.classList.remove('active'));
         let activeLayer = mainImageLayers.find(el => el.dataset.mainLayer == ind);
         activeLayer && activeLayer.classList.add('active');
@@ -74,16 +74,28 @@ if (mainImageSection) {
 
         const activeInnerLayer = document.querySelector(`[data-layer="${ind}"]`);
         if (activeInnerLayer && mainImageSection.classList.contains('selected')) {
+
             activeInnerLayer.classList.add('show');
             const layerIndex = activeInnerLayer.getAttribute('data-layer');
             const layerElems = activeInnerLayer.querySelectorAll('[data-inner]');
 
-            const activeElemInLayer = layerElems[0];
-            const activeElemInLayerDataId = activeElemInLayer.getAttribute('data-inner');
+            let activeIndex = 0;
+            // Функция для смены активного элемента
+            function setActiveElement() {
+                const activeElemInLayer = layerElems[activeIndex];
+                layerElems.forEach(elem => elem.classList.remove('active'));
+                layerElems[activeIndex].classList.add('active');
+                activeIndex = (activeIndex + 1) % layerElems.length;
+                cleanAllActivePath();
+                const activeElemInLayerDataId = activeElemInLayer.getAttribute('data-inner');
+                const activeLayerElemsInImage = document.querySelectorAll(`[data-layer-elem = '${layerIndex}-${activeElemInLayerDataId}']`);
+                activeLayerElemsInImage.forEach(el => el.classList.add('active'));
+            }
+            // Устанавливаем начальный активный элемент
+            setActiveElement();
+            // Запускаем интервал смены
+            intervalId = setInterval(setActiveElement, 3000);
 
-            activeElemInLayer.classList.add('active');
-            const activeLayerElemsInImage = document.querySelectorAll(`[data-layer-elem = '${layerIndex}-${activeElemInLayerDataId}']`);
-            activeLayerElemsInImage.forEach(el => el.classList.add('active'));
             setTimeout(() => {
                 mainImageSvg.style.width = 'calc(100% + 1px)';
             }, 1010);
@@ -131,6 +143,7 @@ if (mainImageSection) {
     });
 
     layersBackBtn.addEventListener('click', () => {
+        stopInterval();
         cleanAllActivePath();
         cleanAllActiveListElems();
         mainImageSection.classList.remove('selected');
@@ -154,6 +167,7 @@ if (mainImageSection) {
         const elParentId = el.closest('[data-layer]').getAttribute('data-layer');
         el.addEventListener('click', (e) => {
             if (e.target.closest('.inner-item__link')) return;
+            stopInterval();
             cleanAllActivePath();
             cleanAllActiveListElems();
             el.classList.add('active');
@@ -162,6 +176,14 @@ if (mainImageSection) {
             activeLayerElemsInImage.forEach(el => el.classList.add('active'));
         });
     });
+
+    // Функция для остановки интервала
+    function stopInterval() {
+        if (intervalId) {
+            clearInterval(intervalId); // Останавливаем интервал
+            intervalId = null; // Сбрасываем идентификатор
+        }
+    }
 }
 
 
