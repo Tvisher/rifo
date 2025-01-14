@@ -198,3 +198,19 @@ const logosSlider = new Swiper('.logos-section__wrapper', {
         delay: 2000,
     },
 });
+
+const mobMenuBtn = document.querySelector('.mob-menu-btn');
+const mobMenu = document.querySelector('.mobile-menu');
+const bodyEl = document.querySelector('body');
+
+document.addEventListener('click', (e) => {
+    const target = e.target;
+    if (target.closest('.mob-menu-btn')) {
+        mobMenu.classList.add('show');
+        bodyEl.classList.add('menu-open');
+    }
+    if (target.closest('.close-menu-btn')) {
+        mobMenu.classList.remove('show');
+        bodyEl.classList.remove('menu-open');
+    }
+})
