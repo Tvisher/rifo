@@ -54,6 +54,7 @@ const articleSlider = new Swiper('.article-page__slider', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
+
 })
 
 
@@ -189,7 +190,7 @@ if (mainImageSection) {
 
 
 const logosSlider = new Swiper('.logos-section__wrapper', {
-    slidesPerView: 4,
+    slidesPerView: 1,
     grabCursor: 1,
     speed: 1000,
     spaceBetween: 50,
@@ -197,11 +198,23 @@ const logosSlider = new Swiper('.logos-section__wrapper', {
     autoplay: {
         delay: 2000,
     },
+    breakpoints: {
+        576: {
+            slidesPerView: 2,
+        },
+        768: {
+            slidesPerView: 3,
+        },
+        992: {
+            slidesPerView: 4,
+        }
+    }
 });
 
 const mobMenuBtn = document.querySelector('.mob-menu-btn');
 const mobMenu = document.querySelector('.mobile-menu');
 const bodyEl = document.querySelector('body');
+const stickySidebar = document.querySelector('.sticky-sidebar');
 
 document.addEventListener('click', (e) => {
     const target = e.target;
@@ -211,6 +224,16 @@ document.addEventListener('click', (e) => {
     }
     if (target.closest('.close-menu-btn')) {
         mobMenu.classList.remove('show');
+        bodyEl.classList.remove('menu-open');
+    }
+
+    if (target.closest('.catalog-ico')) {
+        stickySidebar.classList.add('show');
+        bodyEl.classList.add('menu-open');
+    }
+
+    if (target.closest('.arrow-ico')) {
+        stickySidebar.classList.remove('show');
         bodyEl.classList.remove('menu-open');
     }
 })
