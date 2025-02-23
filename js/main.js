@@ -24,6 +24,7 @@ cardsSliders.forEach(wrapper => {
     const nextSlideBtn = wrapper.querySelector('.swiper-button-next');
     const cardsSlider = new Swiper(sliderElement, {
         slidesPerView: 'auto',
+        // autoHeight: 1,
         spaceBetween: 10,
         navigation: {
             nextEl: nextSlideBtn,
